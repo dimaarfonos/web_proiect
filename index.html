@@ -4,6 +4,7 @@
         <link rel="shortcut icon" type="image/png" href="img/icon.png" sizes="140x140">
         <meta charset="UTF-8">
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet"  href="css/style.css">
     </head>
     <body>
          <!-- menu panel-->
@@ -60,9 +61,55 @@
         </div>
          <!-- end slideshow -->
 
+         <!-- секция рекомендации -->
+        <section class="recommendations">
+    <div class="item">
+        <div class="image-container" onclick="openFullscreen(this)">
+            <img src="img/latte.jpg" alt="Латте" class="item-image">
+        </div>
+        <h3 class="item-title">Латте</h3>
+        <p class="item-price">250 ₽</p>
+        <button class="buy-button">Купить</button>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="item">
+        <div class="image-container" onclick="openFullscreen(this)">
+            <img src="img/tiramisu.jpg" alt="Тирамису" class="item-image">
+        </div>
+        <h3 class="item-title">Тирамису</h3>
+        <p class="item-price">350 ₽</p>
+        <button class="buy-button">Купить</button>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="item">
+        <div class="image-container" onclick="openFullscreen(this)">
+            <img src="img/waffles.jpg" alt="Домашние вафли" class="item-image">
+        </div>
+        <h3 class="item-title">Домашние вафли</h3>
+        <p class="item-price">200 ₽</p>
+        <button class="buy-button">Купить</button>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+</section>
+<div id="fullscreenOverlay" class="fullscreen-overlay" onclick="closeFullscreen()"></div>
 
 
+
+    <!-- подвал -->
+<footer>
+    <div class="footer-content">
+        <h2>Контакты</h2>
+        <p>Адрес: Улица Примерная, 123, Город, Страна</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
+        <p>Email: info@mawassicafe.ru</p>
+    </div>
+    <div class="map-container">
+        <h2>Наша карта</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5019.284336066626!2d37.59563749641465!3d55.710505964234294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54b68b813a571%3A0xae479577c4a00623!2z0KTQsNC60YPQu9GM0YLQtdGCINGE0LjQt9C40LrQvi3QvNCw0YLQtdC80LDRgtC40YfQtdGB0LrQuNGFINC4INC10YHRgtC10YHRgtCy0LXQvdC90YvRhSDQvdCw0YPQuiDQoNCj0JTQnQ!5e0!3m2!1sru!2sru!4v1731991700149!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+        </div>
+</footer>
         <script src="js/slider.js"> </script>    
+        <script src="js/script.js"> </script>    
         
     
     </body>
