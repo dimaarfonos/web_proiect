@@ -16,14 +16,18 @@ function closeFullscreen() {
     overlay.style.display = 'none'; // Скрываем затемняющий фон
 }
 
-document.querySelectorAll('.buy-button').forEach(button => {
-    button.addEventListener('click', () => {
-        alert('Вы купили этот товар!');
-    });
+
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    loader.style.display = 'none'; // Скрыть индикатор загрузки
+    document.body.style.opacity = '1';
+    stay_time() // Установить непрозрачность тела
 });
 
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-        alert('Товар добавлен в корзину!');
-    });
-});
+// Установите начальную непрозрачность тела на 0
+document.body.style.opacity = '0';
+
+
+function stay_time(){
+        setTimeout(4000); 
+    };

@@ -1,32 +1,37 @@
-<html>
-    <head>
-        <title> Mawassi Cafe </title>
-        <link rel="shortcut icon" type="image/png" href="img/icon.png" sizes="140x140">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <link rel="stylesheet"  href="css/style.css">
-    </head>
-    <body>
-         <!-- menu panel-->
-        <header>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Shopping Cart with Modal</title>
+</head>
+<body id="ara">
+<header>
              <nav class="navbar">
                 <a href="index.html" class="logo">
                     <img src="img/logo.png" alt ="Logo Coffee " class="logo-img">
                 </a>
                 <div class="menu-center">
                     <a href="index.html">Главная</a>
-                    <a href="about.html">О нас</a>
-                    <a href="menu.html">Меню</a>
-                    <a href="gallery.html">Галерея</a>
-                    <a href="contact.html">Контакты</a>
+                    <a href="pages/about.html">О нас</a>
+                    <a href="pages/menu.html">Меню</a>
+                    <a href="pages/gallery.html">Галерея</a>
+                    <a href="pages/contact.html">Контакты</a>
                 </div>
-                <a href="cart.html" class="cart-icon">
-                    <img src="img/cart.png" alt="Cart" class="cart-img">
-                </a>
+                 <!-- Иконка корзины -->
+  <div class="cart-icon" id="cart-fix" onclick="openModal()">
+   <img src="img/cart.png" alt="Cart" class="cart-img">
+    <div class="cart-count" id="cart-count">0</div>
+  </div>
+                
              </nav>
         </header>
 
-        <!--Slider for main part of homepage -->
+   
+
+    
+<!--Slider for main part of homepage -->
         <div class="slideshow-container">
             <!-- 1 slide -->
             <div class="slide anim">
@@ -61,7 +66,7 @@
         </div>
          <!-- end slideshow -->
 
-         <!-- секция рекомендации -->
+   <!-- секция рекомендации -->
         <section class="recommendations">
     <div class="item">
         <div class="image-container" onclick="openFullscreen(this)">
@@ -69,8 +74,7 @@
         </div>
         <h3 class="item-title">Латте</h3>
         <p class="item-price">250 ₽</p>
-        <button class="buy-button">Купить</button>
-        <button class="add-to-cart">Добавить в корзину</button>
+        <button onclick="addToCart('p1', 'Латте', 250.00)" class="add_cart">Добавить в корзину</button>
     </div>
     <div class="item">
         <div class="image-container" onclick="openFullscreen(this)">
@@ -78,8 +82,7 @@
         </div>
         <h3 class="item-title">Тирамису</h3>
         <p class="item-price">350 ₽</p>
-        <button class="buy-button">Купить</button>
-        <button class="add-to-cart">Добавить в корзину</button>
+        <button onclick="addToCart('p2', 'Тирамису', 350.00)" class="add_cart">Добавить в корзину</button>
     </div>
     <div class="item">
         <div class="image-container" onclick="openFullscreen(this)">
@@ -87,13 +90,55 @@
         </div>
         <h3 class="item-title">Домашние вафли</h3>
         <p class="item-price">200 ₽</p>
-        <button class="buy-button">Купить</button>
-        <button class="add-to-cart">Добавить в корзину</button>
+        <button onclick="addToCart('p3', 'Домашние вафли', 200)" class="add_cart">Добавить в корзину</button>
     </div>
 </section>
 <div id="fullscreenOverlay" class="fullscreen-overlay" onclick="closeFullscreen()"></div>
+<!-- Конец секции-->
 
 
+ 
+
+  <!-- Модальное окно -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div class="cart">
+        <h2>Ваша корзина</h2>
+        <div class="cart-header">
+          <div>Товар</div>
+          <div>Цена</div>
+          <div>Кол-во</div>
+          <div>Действия</div>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+          <div class="total">Итого: <span id="cart-total">0.00</span>$</div>
+        </div>
+        <form id="checkout-form">
+          <h3>Оформление заказа</h3>
+          <div>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" required>
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+          </div>
+          <div>
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" required>
+          </div>
+          <button type="submit">Отправить заказ</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Сообщение -->
+  <div class="alert" id="alert-message"></div>
+
+  
 
     <!-- подвал -->
 <footer>
@@ -105,14 +150,15 @@
     </div>
     <div class="map-container">
         <h2>Наша карта</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5019.284336066626!2d37.59563749641465!3d55.710505964234294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54b68b813a571%3A0xae479577c4a00623!2z0KTQsNC60YPQu9GM0YLQtdGCINGE0LjQt9C40LrQvi3QvNCw0YLQtdC80LDRgtC40YfQtdGB0LrQuNGFINC4INC10YHRgtC10YHRgtCy0LXQvdC90YvRhSDQvdCw0YPQuiDQoNCj0JTQnQ!5e0!3m2!1sru!2sru!4v1731991700149!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210.50938359417154!2d35.04608980018248!3d32.41513620791623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d1b186817e077%3A0x30d6b050f1a5eb30!2sMawassi%20canteen!5e0!3m2!1sru!2sru!4v1732005099776!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
         </div>
 </footer>
+ <div id="loader" class="loader"></div>
+
         <script src="js/slider.js"> </script>    
         <script src="js/script.js"> </script>    
-        
-    
-    </body>
-
+        <script src="js/cart.js"></script>
+       
+</body>
 </html>
-
+b
