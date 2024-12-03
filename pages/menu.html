@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <title>Mawassi Cafe</title>
+</head>
+<body>
+<header>
+             <nav class="navbar">
+             <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+                <a href="../index.html" class="logo">
+                    <img src="../img/logo.png" alt ="Logo Coffee " class="logo-img">
+                </a>
+                <div class="menu-center">
+                    <a href="../index.html">Главная</a>
+                    <a href="../index.html#about">О нас</a>
+                    <a href="menu.html">Меню</a>
+                    <a href="#contact">Контакты</a>
+                </div>
+                 <!-- Иконка корзины -->
+  <div class="cart-icon" id="cart-fix" onclick="openModal()">
+   <img src="../img/cart.png" alt="Cart" class="cart-img">
+    <div class="cart-count" id="cart-count">0</div>
+  </div>
+                
+             </nav>
+        </header>
+
+
+    
+
+   <!-- секция рекомендации -->
+
+    <h2 class="rec">Хиты продаж 🔥🔥🔥</h2>
+     <div class="snacks-container">
+    <button class="scroll-button left" onclick="scrollSnacksRec(-1)">&#10094;</button>
+        <section class="recommendations">
+    <div class="item">
+        <div class="image-container" onclick="openFullscreen(this)">
+            <img src="../img/latte.jpg" alt="Латте" class="item-image">
+        </div>
+        <h3 class="item-title">Латте</h3>
+        <p class="item-price">250 ₽</p>
+        <button onclick="addToCart('p1', 'Латте', 250.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+    </div>
+    <div class="item">
+        <div class="image-container" onclick="openFullscreen(this)">
+            <img src="../img/tiramisu.jpg" alt="Тирамису" class="item-image">
+        </div>
+        <h3 class="item-title">Тирамису</h3>
+        <p class="item-price">350 ₽</p>
+        <button onclick="addToCart('p2', 'Тирамису', 350.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+    </div>
+    <div class="item">
+        <div class="image-container" onclick="openFullscreen(this)">
+            <img src="../img/waffles.jpg" alt="Домашние вафли" class="item-image">
+        </div>
+        <h3 class="item-title">Домашние вафли</h3>
+        <p class="item-price">200 ₽</p>
+        <button onclick="addToCart('p3', 'Домашние вафли', 200)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+    </div>
+    <div class="item">
+        <div class="image-container" onclick="openFullscreen(this)">
+            <img src="../img/pecenya.jpg" alt="Печенья" class="item-image">
+        </div>
+        <h3 class="item-title">Печенья</h3>
+        <p class="item-price">200 ₽</p>
+        <button onclick="addToCart('p4', 'Печенья', 200)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+    </div>
+    <div class="item">
+    <div class="image-container" onclick="openFullscreen(this)">
+        <img src="../img/muffin.jpg" alt="Маффин" class="item-image">
+    </div>
+    <h3 class="item-title">Маффин</h3>
+    <p class="item-price">250 ₽</p>
+    <button onclick="addToCart('p5', 'Маффин', 250.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+</div>
+<div class="item">
+    <div class="image-container" onclick="openFullscreen(this)">
+        <img src="../img/croissant.jpg" alt="Круассан" class="item-image">
+    </div>
+    <h3 class="item-title">Круассан</h3>
+    <p class="item-price">150 ₽</p>
+    <button onclick="addToCart('p6', 'Круассан', 150.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+</div>
+<div class="item">
+    <div class="image-container" onclick="openFullscreen(this)">
+        <img src="../img/cheesecake.jpg" alt="Чизкейк" class="item-image">
+    </div>
+    <h3 class="item-title">Чизкейк</h3>
+    <p class="item-price">300 ₽</p>
+    <button onclick="addToCart('p7', 'Чизкейк', 300.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+</div>
+</section>
+ <button class="scroll-button right" onclick="scrollSnacksRec(1)">&#10095;</button>
+</div>
+     
+<div id="fullscreenOverlay" class="fullscreen-overlay" onclick="closeFullscreen()"></div>
+
+
+
+<!-- Конец секции-->
+  <h2 class="rec">Напитки 🍸🍹</h2>
+  <div class="snacks-container">
+    <button class="scroll-button left" onclick="scrollSnacksDrinks(-1)">&#10094;</button>
+ <section class="drinks">
+      
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/espresso.jpg" alt="Кофе эспрессо" class="item-image">
+            </div>
+            <h3 class="item-title">Кофе эспрессо</h3>
+            <p class="item-price">60 ₽</p>
+            <button onclick="addToCart('d1', 'Кофе эспрессо', 60.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/cappuccino.jpg" alt="Капучино" class="item-image">
+            </div>
+            <h3 class="item-title">Капучино</h3>
+            <p class="item-price">80 ₽</p>
+            <button onclick="addToCart('d2', 'Капучино', 80.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/black_tea.jpg" alt="Чай черный" class="item-image">
+            </div>
+            <h3 class="item-title">Чай черный</h3>
+            <p class="item-price">50 ₽</p>
+            <button onclick="addToCart('d3', 'Чай черный', 50.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/orange_juice.jpg" alt="Сок апельсиновый" class="item-image">
+            </div>
+            <h3 class="item-title">Сок апельсиновый</h3>
+            <p class="item-price">70 ₽</p>
+            <button onclick="addToCart('d4', 'Сок апельсиновый', 70.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/lemonade.jpg" alt="Лимонад" class="item-image">
+            </div>
+            <h3 class="item-title">Лимонад</h3>
+            <p class="item-price">60 ₽</p>
+            <button onclick="addToCart('d5', 'Лимонад', 60.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+    </section>
+    <button class="scroll-button right" onclick="scrollSnacksDrinks(1)">&#10095;</button>
+</div>
+
+
+
+
+     <h2 class="rec">Закуски 🍔🥪🌮</h2>
+<div class="snacks-container">
+    <button class="scroll-button left" onclick="scrollSnacks(-1)">&#10094;</button>
+    <section class="snacks">
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/chicken_sandwich.jpg" alt="Сэндвич с курицей" class="item-image">
+            </div>
+            <h3 class="item-title">Сэндвич с курицей</h3>
+            <p class="item-price">120 ₽</p>
+            <button onclick="addToCart('s1', 'Сэндвич с курицей', 120.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/beef_burger.jpg" alt="Бургер с говядиной" class="item-image">
+            </div>
+            <h3 class="item-title">Бургер с говядиной</h3>
+            <p class="item-price">150 ₽</p>
+            <button onclick="addToCart('s2', 'Бургер с говядиной', 150.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/caesar_salad.jpg" alt="Салат Цезарь" class="item-image">
+            </div>
+            <h3 class="item-title">Салат "Цезарь"</h3>
+            <p class="item-price">130 ₽</p>
+            <button onclick="addToCart('s3', 'Салат Цезарь', 130.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/cabbage_pies.jpg" alt="Пирожки с капустой" class="item-image">
+            </div>
+            <h3 class="item-title">Пирожки с капустой</h3>
+            <p class="item-price">40 ₽</p>
+            <button onclick="addToCart('s4', 'Пирожки с капустой', 40.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+    <div class="image-container" onclick="openFullscreen(this)">
+        <img src="../img/grilled_cheese.jpg" alt="Гриль-сырный сэндвич" class="item-image">
+    </div>
+    <h3 class="item-title">Гриль-сырный сэндвич</h3>
+    <p class="item-price">100 ₽</p>
+    <button onclick="addToCart('s4', 'Гриль-сырный сэндвич', 100.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+</div>
+<div class="item">
+    <div class="image-container" onclick="openFullscreen(this)">
+        <img src="../img/tuna_salad.jpg" alt="Салат с тунцом" class="item-image">
+    </div>
+    <h3 class="item-title">Салат с тунцом</h3>
+    <p class="item-price">140 ₽</p>
+    <button onclick="addToCart('s5', 'Салат с тунцом', 140.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+</div>
+    </section>
+    <button class="scroll-button right" onclick="scrollSnacks(1)">&#10095;</button>
+</div>
+     
+    
+
+    <h2 class="rec">Десерты 🍨🍰🧁</h2>
+    <div class="snacks-container">
+    <button class="scroll-button left" onclick="scrollSnacksDesserts(-1)">&#10094;</button>
+    <section class="desserts">
+        
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/medovic.jpg" alt="Торт Тирамису" class="item-image">
+            </div>
+            <h3 class="item-title">Торт "Медовик"</h3>
+            <p class="item-price">150 ₽</p>
+            <button onclick="addToCart('d1', 'Торт Медовик', 150.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/vanilla_ice_cream.jpg" alt="Мороженое ванильное" class="item-image">
+            </div>
+            <h3 class="item-title">Мороженое ванильное</h3>
+            <p class="item-price">50 ₽</p>
+            <button onclick="addToCart('d2', 'Мороженое ванильное', 50.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/chocolate_cake.jpg" alt="Шоколадный торт" class="item-image">
+            </div>
+            <h3 class="item-title">Шоколадный торт</h3>
+            <p class="item-price">120 ₽</p>
+            <button onclick="addToCart('d3', 'Шоколадный торт', 120.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+         <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/apple_pie.jpg" alt="Яблочный пирог" class="item-image">
+            </div>
+            <h3 class="item-title">Яблочный пирог</h3>
+            <p class="item-price">140 ₽</p>
+            <button onclick="addToCart('d4', 'Яблочный пирог', 140.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/fruit_salad.jpg" alt="Фруктовый салат" class="item-image">
+            </div>
+            <h3 class="item-title">Фруктовый салат</h3>
+            <p class="item-price">90 ₽</p>
+            <button onclick="addToCart('d5', 'Фруктовый салат', 90.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+        <div class="item">
+            <div class="image-container" onclick="openFullscreen(this)">
+                <img src="../img/blueberry_muffin.jpg" alt="Черничный маффин" class="item-image">
+            </div>
+            <h3 class="item-title">Черничный маффин</h3>
+            <p class="item-price">110 ₽</p>
+            <button onclick="addToCart('d6', 'Черничный маффин', 110.00)" class="add_cart">Добавить в корзину</button><button  onclick="openModal()" class="add_cart">🛒</button>
+        </div>
+    </section>
+    <button class="scroll-button right" onclick="scrollSnacksDesserts(1)">&#10095;</button>
+</div>
+
+    <section class="special-offers">
+        <h2>Специальные предложения</h2>
+       
+        <p><strong>Счастливые часы</strong>: Скидка 20% на все напитки с 15:00 до 17:00.</p>
+    </section>
+
+
+
+
+
+
+ 
+
+  <!-- Модальное окно -->
+ <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <div class="cart">
+        <h2>Ваша корзина</h2>
+        <div class="cart-header">
+          <div>Товар</div>
+          <div>Цена</div>
+          <div>Кол-во</div>
+          <div>Действия</div>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+          <div class="total">Итого: <span id="cart-total">0.00</span>$</div>
+        </div>
+        <form id="checkout-form">
+          <h3>Оформление заказа</h3>
+          <div>
+            <label for="name">Имя:</label>
+            <input type="text" id="name" required>
+          </div>
+
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+          </div>
+          <div>
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" required>
+          </div>
+          <div>
+            <label for="adres">Адрес:</label>
+            <input type="text" id="adres" required>
+          </div>
+          <button type="submit">Отправить заказ</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Сообщение -->
+  <div class="alert" id="alert-message"></div>
+
+  
+  <button id="backToTop" class="back-to-top" onclick="scrollToTop()">⬆</button>
+
+    <!-- подвал -->
+<footer id = "contact">
+    <div class="footer-content">
+        <h2>Контакты</h2>
+        <p>Адрес: Улица Примерная, 123, Город, Страна</p>
+        <p>Телефон: +7 (123) 456-78-90</p>
+        <p>Email: info@mawassicafe.ru</p>
+    </div>
+    <div class="map-container">
+        <h2>Наша карта</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d210.50938359417154!2d35.04608980018248!3d32.41513620791623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d1b186817e077%3A0x30d6b050f1a5eb30!2sMawassi%20canteen!5e0!3m2!1sru!2sru!4v1732005099776!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+        </div>
+</footer>
+ <div id="loader" class="loader"></div>
+
+        <script src="../js/slider.js"> </script>    
+        <script src="../js/script.js"> </script>    
+        <script src="../js/cart.js"></script>
+       
+</body>
+</html>

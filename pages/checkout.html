@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - Mawassi Cafe</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="img/logo.png" alt="Logo Coffee" class="logo-img">
+            </a>
+            <div class="menu-center">
+                <a href="index.html">Главная</a>
+                <a href="pages/about.html">О нас</a>
+                <a href="pages/menu.html">Меню</a>
+                <a href="pages/gallery.html">Галерея</a>
+                <a href="pages/contact.html">Контакты</a>
+                <a href="cart.html" class="cart-icon">
+                    <img src="img/cart.png" alt="Cart" class="cart-img">
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <h1>Оформление заказа</h1>
+    <div id="cart-items"></div>
+    <button id="confirm-order">Подтвердить заказ</button>
+
+    <script>
+        // Получаем данные из локального хранилища
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Отображаем товары в корзине
+        const cartItemsContainer = document.getElementById('cart-items');
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Корзина пуста.</p>';
+        } else {
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.innerHTML = `<h3>${item.title}</h3><p>${item.price} ₽</p>`;
+                cartItemsContainer.appendChild(itemElement);
+            });
+        }
+
+        // Обработка кнопки подтверждения заказа
+        document.getElementById('confirm-order').addEventListener('click', () => {
+            alert('Ваш заказ подтвержден! Спасибо за покупку!');
+            localStorage.removeItem('cart'); // Очищаем корзину
+            window.location.href = 'index.html'; // Перенаправляем на главную страницу
+        });
+    </script>
+</body>
+</html>

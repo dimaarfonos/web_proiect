@@ -4,21 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
-  <title>Shopping Cart with Modal</title>
+  <title>Mawassi Cafe</title>
 </head>
-<body id="ara">
+<body>
 <header>
              <nav class="navbar">
+             <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
                 <a href="index.html" class="logo">
                     <img src="img/logo.png" alt ="Logo Coffee " class="logo-img">
                 </a>
                 <div class="menu-center">
                     <a href="index.html">Главная</a>
-                    <a href="pages/about.html">О нас</a>
+                    <a href="#about">О нас</a>
                     <a href="pages/menu.html">Меню</a>
-                    <a href="pages/gallery.html">Галерея</a>
-                    <a href="pages/contact.html">Контакты</a>
+                    <a href="#contact">Контакты</a>
                 </div>
+                
                  <!-- Иконка корзины -->
   <div class="cart-icon" id="cart-fix" onclick="openModal()">
    <img src="img/cart.png" alt="Cart" class="cart-img">
@@ -66,15 +72,66 @@
         </div>
          <!-- end slideshow -->
 
+
+       
+      <section class="about-us"  id="about">
+    <!-- Блок с текстом справа и картинкой слева -->
+   <section class="about-us">
+    <h2 class="about-title">О нас</h2>
+
+    <!-- Блок с текстом слева и картинкой справа -->
+    <div class="about-section">
+        <div class="about-text">
+            <h3>Добро пожаловать в Mawassi Cafe</h3>
+            <p>
+                Mawassi Cafe — это место, где уют и изысканный вкус встречаются. 
+                Наша цель — создавать моменты, которые согревают душу и радуют вкус.
+            </p>
+            <p>
+                Каждый наш гость может насладиться не только вкусным кофе, но и атмосферой, 
+                пропитанной заботой и теплотой. Мы гордимся тем, что можем дарить радость.
+            </p>
+        </div>
+        <div class="about-image">
+            <img src="img/about1.png" alt="Наше кафе" class="about-img">
+        </div>
+    </div>
+
+    <!-- Блок с картинкой слева и текстом справа -->
+    <div class="about-section">
+        <div class="about-image">
+            <img src="img/about2.jpg" alt="История Mawassi Cafe" class="about-img">
+        </div>
+        <div class="about-text reverse">
+            <h3>Наша история</h3>
+            <p>
+                История Mawassi Cafe началась с мечты создать уютное пространство, 
+                где можно забыть о суете. Мы выросли из небольшой кофейни в уголке города 
+                в место, которое любят наши гости.
+            </p>
+            <p>
+                Мы стремимся к совершенству в каждой чашке кофе и в каждом кусочке десерта. 
+                Приходите и станьте частью нашей истории!
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+
    <!-- секция рекомендации -->
+        <h2 class="rec">Наши Рекомендации 🔥🔥🔥</h2>
         <section class="recommendations">
+        
     <div class="item">
         <div class="image-container" onclick="openFullscreen(this)">
             <img src="img/latte.jpg" alt="Латте" class="item-image">
         </div>
         <h3 class="item-title">Латте</h3>
         <p class="item-price">250 ₽</p>
-        <button onclick="addToCart('p1', 'Латте', 250.00)" class="add_cart">Добавить в корзину</button>
+        <button onclick="addToCart('1', 'Латте', 250.00)" class="add_cart">Добавить в корзину</button>
+           <button  onclick="openModal()" class="add_cart">🛒</button>
     </div>
     <div class="item">
         <div class="image-container" onclick="openFullscreen(this)">
@@ -82,7 +139,8 @@
         </div>
         <h3 class="item-title">Тирамису</h3>
         <p class="item-price">350 ₽</p>
-        <button onclick="addToCart('p2', 'Тирамису', 350.00)" class="add_cart">Добавить в корзину</button>
+        <button onclick="addToCart('2', 'Тирамису', 350.00)" class="add_cart">Добавить в корзину</button>
+          <button  onclick="openModal()" class="add_cart">🛒</button>
     </div>
     <div class="item">
         <div class="image-container" onclick="openFullscreen(this)">
@@ -90,9 +148,14 @@
         </div>
         <h3 class="item-title">Домашние вафли</h3>
         <p class="item-price">200 ₽</p>
-        <button onclick="addToCart('p3', 'Домашние вафли', 200)" class="add_cart">Добавить в корзину</button>
+        <button onclick="addToCart('3', 'Домашние вафли', 200)" class="add_cart">Добавить в корзину</button>
+           <button  onclick="openModal()" class="add_cart">🛒</button>
     </div>
+    </div>
+    
 </section>
+<div class="menu-button-container">
+        <a href="pages/menu.html" class="menu-button">Перейти в меню</a>
 <div id="fullscreenOverlay" class="fullscreen-overlay" onclick="closeFullscreen()"></div>
 <!-- Конец секции-->
 
@@ -121,6 +184,7 @@
             <label for="name">Имя:</label>
             <input type="text" id="name" required>
           </div>
+
           <div>
             <label for="email">Email:</label>
             <input type="email" id="email" required>
@@ -128,6 +192,10 @@
           <div>
             <label for="phone">Телефон:</label>
             <input type="tel" id="phone" required>
+          </div>
+          <div>
+            <label for="adres">Адрес:</label>
+            <input type="text" id="adres" required>
           </div>
           <button type="submit">Отправить заказ</button>
         </form>
@@ -139,14 +207,15 @@
   <div class="alert" id="alert-message"></div>
 
   
-
+<button id="backToTop" class="back-to-top" onclick="scrollToTop()">⬆</button>
     <!-- подвал -->
 <footer>
-    <div class="footer-content">
+    <div class="footer-content" id="contact">
         <h2>Контакты</h2>
         <p>Адрес: Улица Примерная, 123, Город, Страна</p>
         <p>Телефон: +7 (123) 456-78-90</p>
         <p>Email: info@mawassicafe.ru</p>
+        <p>&copy; 2024 Mawassi Cafe. Все права защищены.</p>
     </div>
     <div class="map-container">
         <h2>Наша карта</h2>
@@ -161,4 +230,3 @@
        
 </body>
 </html>
-b

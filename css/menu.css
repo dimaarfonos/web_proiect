@@ -1,0 +1,129 @@
+
+
+.special-offers {
+    background-color: #fe6666a1; /* Светлый фон */
+    border: 1px solid #ddd; /* Легкая рамка */
+    border-radius: 8px; /* Закругленные углы */
+    padding: 20px; /* Внутренние отступы */
+    margin: 20px 0; /* Отступы сверху и снизу */
+    text-align: center; /* Центрируем текст */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    
+}
+
+.special-offers h2 {
+    font-size: 24px; /* Размер шрифта заголовка */
+    color: #333; /* Цвет текста заголовка */
+    margin-bottom: 15px; /* Отступ снизу */
+}
+
+.special-offers p {
+    font-size: 18px; /* Размер шрифта для текста */
+    color: #fbfbfb; /* Цвет текста */
+    line-height: 1.5; /* Межстрочный интервал */
+}
+
+
+
+.drinks{
+    overflow-x: scroll;
+    
+    padding: 10px 0; 
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    text-align: center;
+    padding: 50px 30px 30px 20px;
+    padding-bottom: 35px;
+    left: 100px;
+    width: 170vh;
+    overflow: hidden;
+  
+}
+
+/* .snacks{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    text-align: center;
+    padding: 50px 30px 30px 20px;
+    padding-bottom: 35px;
+    left: 100px;
+    width: 170vh;
+} */
+
+.desserts{
+    padding: 10px 0; 
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    text-align: center;
+    padding: 50px 30px 30px 20px;
+    padding-bottom: 35px;
+    left: 100px;
+    width: 170vh;
+    overflow: hidden;
+    
+  
+}
+
+.snacks-container {
+    display: flex;
+    background-color: #0000001b;
+    align-items: center; /* Центрируем кнопки по вертикали */
+}
+.right{
+    position: relative;
+    left: 100px;
+}
+
+.left{
+    position: relative;
+    left: 100px;
+}
+.scroll-button {
+    background-color: #0b003ed1; /* Цвет фона кнопки */
+    color: white; /* Цвет текста */
+    border: none; /* Убираем рамку */
+    border-radius: 5px; /* Скругляем углы */
+    padding: 10px; /* Отступы */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.scroll-button:hover {
+    background-color: #0056b3; /* Цвет фона при наведении */
+}
+
+.snacks {
+    padding: 10px 0; 
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    text-align: center;
+    padding: 50px 30px 30px 20px;
+    padding-bottom: 35px;
+    left: 100px;
+    width: 170vh;
+    overflow: hidden;
+  
+}
+
+.snacks::-webkit-scrollbar {
+    height: 80px; /* Высота полосы прокрутки */
+}
+
+.snacks::-webkit-scrollbar-thumb {
+    background-color: #888; /* Цвет полосы прокрутки */
+    border-radius: 4px; /* Закругляем углы полосы прокрутки */
+}
+
+.snacks::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Цвет полосы прокрутки при наведении */
+}
+
+.item {
+    min-width: 200px; /* Минимальная ширина для каждого элемента */
+    margin-right: 15px; /* Отступ между элементами */
+    flex: 0 0 auto; /* Запрещаем элементам сжиматься */
+}
